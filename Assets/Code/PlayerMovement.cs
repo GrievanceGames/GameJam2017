@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 movementVector = new Vector3(0.0f, 0.0f, 0.0f);
 	public GameObject myTextGameObject;
 	public Text textObjectText;
+    public GameObject canvasObject;
 
     public Animation avatarAnimation;
     public AnimationClip upAnimation;
@@ -22,7 +23,8 @@ public class PlayerMovement : MonoBehaviour {
     int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88};
 	// Use this for initialization
 	void Start () {
-		myTextGameObject = GameObject.Find ("gameText");
+        canvasObject = GameObject.Find("Canvas");
+        myTextGameObject = GameObject.Find ("gameText");
 		textObjectText.text = "Welcome to a game of decisions!";
 	}
 
@@ -65,9 +67,10 @@ public class PlayerMovement : MonoBehaviour {
 			if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 				textObjectText.text = "This is a sign.";
 			} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
-				textObjectText.text = "This sign has something written on it.";
-			} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
-			} else {
+                textObjectText.text = "No shit that was a sign.";
+            } else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
+                textObjectText.text = "Help me alex, you're my only hope.";
+            } else {
 			}
 	}
     }
