@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Text textObjectText;
     public GameObject canvasObject;
 	public bool inSign = false;
+    public bool switchScene = false;
 
     public Animation avatarAnimation;
     public AnimationClip upAnimation;
@@ -77,14 +79,15 @@ public class PlayerMovement : MonoBehaviour {
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 print("F  key was pressed");
-		
+
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 					textObjectText.text = "This is a sign.";
 					previousPosition.position.SetValue(playerPosition, 0);
 						
 					inSign = true;
 
-				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
+
+                } else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
 					textObjectText.text = "No shit that was a sign.";
 					inSign = true;
 				} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
@@ -96,7 +99,8 @@ public class PlayerMovement : MonoBehaviour {
 		} else {
 			if (Input.GetKeyDown (KeyCode.F)) {
 				textObjectText.text = "";
-				inSign = false;
+                SceneManager.LoadScene("TrainChooChoo");
+                inSign = false;
 			}
 		}
     }

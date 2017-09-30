@@ -4,6 +4,7 @@ using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class Timer : MonoBehaviour
 {
     public float waitTime = 1f;
