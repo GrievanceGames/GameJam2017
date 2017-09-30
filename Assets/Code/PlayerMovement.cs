@@ -32,30 +32,51 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if (inSign == false) {
-		
-			if (Input.GetKeyDown (KeyCode.W) && playerPosition [1] + 1 != 9 && ValidNewPosition (1, 1)) {
-				movementVector.Set (0.0f, 0.95f, 0.0f);
-				playerPosition [1] += 1;
-				playerAvatar.GetComponent<Animator> ().StopPlayback ();
-				playerAvatar.GetComponent<Animator> ().Play ("UpAvatarWalk");
-				print ("W key was pressed");
-			} else if (Input.GetKeyDown (KeyCode.A) && playerPosition [0] - 1 != 0 && ValidNewPosition (-1, 0)) {
-				movementVector.Set (-0.95f, 0.0f, 0.0f);
-				playerPosition [0] -= 1;
-				playerAvatar.GetComponent<Animator> ().Play ("LeftAvatarWalk");
-				print ("A key was pressed");
-			} else if (Input.GetKeyDown (KeyCode.S) && playerPosition [1] - 1 != 0 && ValidNewPosition (-1, 1)) {
-				movementVector.Set (0.0f, -0.95f, 0.0f);
-				playerPosition [1] -= 1;
-				playerAvatar.GetComponent<Animator> ().Play ("IdleAvatar");
-				print ("S key was pressed");
-			} else if (Input.GetKeyDown (KeyCode.D) && playerPosition [0] + 1 != 9 && ValidNewPosition (1, 0)) {
-				movementVector.Set (0.95f, 0.0f, 0.0f);
-				playerPosition [0] += 1;
-				playerAvatar.GetComponent<Animator> ().Play ("RightAvatarWalk");
-				print ("D  key was pressed");
-			} else if (Input.GetKeyDown (KeyCode.F)) {
+        if (inSign == false) {
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                playerAvatar.GetComponent<Animator>().Play("UpAvatarWalk");
+                if (playerPosition[1] + 1 != 9 && ValidNewPosition(1, 1))
+                {
+                    movementVector.Set(0.0f, 0.95f, 0.0f);
+                    playerPosition[1] += 1;
+                    print("W key was pressed");
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                playerAvatar.GetComponent<Animator>().Play("LeftAvatarWalk");
+                if (playerPosition[0] - 1 != 0 && ValidNewPosition(-1, 0))
+                {
+                    movementVector.Set(-0.95f, 0.0f, 0.0f);
+                    playerPosition[0] -= 1;
+                    print("A key was pressed");
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                playerAvatar.GetComponent<Animator>().Play("IdleAvatar");
+                if (playerPosition[1] - 1 != 0 && ValidNewPosition(-1, 1))
+                {
+                    movementVector.Set(0.0f, -0.95f, 0.0f);
+                    playerPosition[1] -= 1;
+                    print("S key was pressed");
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                playerAvatar.GetComponent<Animator>().Play("RightAvatarWalk");
+                if (playerPosition[0] + 1 != 9 && ValidNewPosition(1, 0))
+                {
+                    movementVector.Set(0.95f, 0.0f, 0.0f);
+                    playerPosition[0] += 1;
+                    print("D  key was pressed");
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                print("F  key was pressed");
 		
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 					textObjectText.text = "This is a sign.";
