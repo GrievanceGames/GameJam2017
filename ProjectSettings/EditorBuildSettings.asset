@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/QuestionScreen.unity
     guid: 38ba5c16bc5a4fc45994f2979d216917
   - enabled: 1
@@ -14,3 +15,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TrainChooChoo.unity
     guid: 7e4f1aec68634c2449f47627cc82f092
+=======
+    path: Assets/MainMenu.unity
+    guid: 071eb7eb7f97e0b468d1e6bd87cc5339
+>>>>>>> f69c90e978308542a8b902b49dbf407902218d77
