@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
     public GameObject playerAvatar;
     public Camera mainCamera;
     public Vector3 movementVector = new Vector3(0.0f, 0.0f, 0.0f);
+	public GameObject myTextGameObject;
+	public Text textObjectText;
+
     int[] playerPosition = new int[] {1, 1};
     int[] invalidPositions = new int[] {12, 18, 76};
 	// Use this for initialization
 	void Start () {
-		
+		myTextGameObject = GameObject.Find ("gameText");
+		textObjectText.text = "Welcome to a game of decisions!";
 	}
 
     // Update is called once per frame
@@ -44,7 +49,15 @@ public class PlayerMovement : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.F))
         {
             print("F  key was pressed");
-        }
+		
+			if (playerPosition [0] == 1 && playerPosition [1] == 1) {
+				textObjectText.text = "This is a sign.";
+			} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
+				textObjectText.text = "This sign has something written on it.";
+			} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
+			} else {
+			}
+	}
     }
 
     void LateUpdate()
