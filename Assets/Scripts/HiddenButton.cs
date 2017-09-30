@@ -8,6 +8,7 @@ public class HiddenButton : MonoBehaviour
 {
 
     public Button optBtn;
+    Timer Timer = new Timer();
 
     // Use this for initialization
     void Start()
@@ -19,6 +20,12 @@ public class HiddenButton : MonoBehaviour
     void TaskOnClick()
     {
         print("Go to MainMenu");
-        SceneManager.LoadScene("MainMenu");
+        Timer.text.fontSize = 10;
+        Timer.text.text = "Congratulations! You've found the hidden third option.";
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
