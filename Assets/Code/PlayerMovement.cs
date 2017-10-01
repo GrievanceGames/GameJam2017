@@ -14,10 +14,14 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject canvasObject;
 	public bool inSign = false;
     public bool switchScene = false;
-    public GameObject staticVariables;
+
+    public GameObject finalAvatarOne;
+    public GameObject finalAvatarTwo;
 
     public int[] playerPosition = new int[] {1, 1};
     int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88, 63};
+    bool[] activeScenes = new bool[] { true, true, true, true };
+    int activeSign = -1;
 
     // Use this for initialization
     void Start () {
@@ -28,6 +32,16 @@ public class PlayerMovement : MonoBehaviour {
 		textObjectText.text = StaticVariableStorage.instance.GetGameText();
 
         transform.position = mainCamera.transform.position + new Vector3(0.95f * (playerPosition[0] - 1), 0.95f * (playerPosition[1] - 1.0f),0.0f);
+
+
+        //When all but final scene completed
+        if (StaticVariableStorage.instance.GetStagesCompleted() == 3)
+        {
+            print("VICTORY!");
+            invalidPositions = new int[] { 12, 18, 76, 55, 56, 87, 88, 63, 48, 58 };
+            finalAvatarOne.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+            finalAvatarTwo.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        }
     }
 
     private void OnDestroy()
@@ -69,16 +83,20 @@ public class PlayerMovement : MonoBehaviour {
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 					textObjectText.text = "Each sign will present you with a morally challenging scenario. Press ESC to exit";
 					inSign = true;
-				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
+                    activeSign = 0;
+				} else if (playerPosition [0] == 1 && playerPosition [1] == 7 && !StaticVariableStorage.instance.GetSceneEntered(1)) {
 					textObjectText.text = "Hey, you're in a grocery store! \nClick F to continue or click ESC to exit";
 					inSign = true;
-				} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
+                    activeSign = 1;
+                } else if (playerPosition [0] == 7 && playerPosition [1] == 5 && !StaticVariableStorage.instance.GetSceneEntered(2)) {
 					textObjectText.text = "Doctor! I have a question! \nClick F to continue or click ESC to exit";
 					inSign = true;
-				} else if (playerPosition [0] == 6 && playerPosition [1] == 2) {
+                    activeSign = 2;
+                } else if (playerPosition [0] == 6 && playerPosition [1] == 2 && !StaticVariableStorage.instance.GetSceneEntered(3)) {
 					textObjectText.text = "Can I ask you a trolley question? \nClick F to continue or click ESC to exit";
 					inSign = true;
-				} else {
+                    activeSign = 3;
+                } else {
 				}
 			}
 		}else {
@@ -86,11 +104,13 @@ public class PlayerMovement : MonoBehaviour {
 				textObjectText.text = "";
 				inSign = false;
 			} else if (Input.GetKeyDown (KeyCode.F)) {
-					textObjectText.text = "";
-					SceneManager.LoadScene ("TrainChooChoo");
-					inSign = false;
-				}
+				textObjectText.text = "";
+                inSign = false;
+                StaticVariableStorage.instance.SetSceneEntered(activeSign);
+                SceneManager.LoadScene ("TrainChooChoo");
+                    
 			}
+		}
 	}
 			
     void LateUpdate()

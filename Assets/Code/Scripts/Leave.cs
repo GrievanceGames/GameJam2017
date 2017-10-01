@@ -13,6 +13,7 @@ public class Leave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             print("F pressed");
+            StaticVariableStorage.instance.SetStageCompleted();
             SceneManager.LoadScene("GardenOfMorality");
         }
     }

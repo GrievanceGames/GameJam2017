@@ -9,6 +9,7 @@ public class StaticVariableStorage : MonoBehaviour {
     private static int[] playerPositionArray = new int[2];
 	private static string gameText;
     private static int stagesCompleted = 0;
+    private static bool[] sceneEntered = new bool[] {false, false, false, false};
 
     public void Awake()
     {
@@ -55,4 +56,13 @@ public class StaticVariableStorage : MonoBehaviour {
         return (stagesCompleted);
     }
 
+    public void SetSceneEntered(int sceneNumber)
+    {
+        sceneEntered[sceneNumber] = true;
+    }
+
+    public bool GetSceneEntered(int sceneNumber)
+    {
+        return (sceneEntered[sceneNumber]);
+    }
 }
