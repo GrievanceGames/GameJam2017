@@ -14,22 +14,26 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject canvasObject;
 	public bool inSign = false;
     public bool switchScene = false;
-
-    public Animation avatarAnimation;
-    public AnimationClip upAnimation;
-    public AnimationClip downAnimation;
-    public AnimationClip rightAnimation;
-    public AnimationClip leftAnimation;
+    public GameObject staticVariables;
 
 
     int[] playerPosition = new int[] {1, 1};
     int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88};
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         canvasObject = GameObject.Find("Canvas");
         myTextGameObject = GameObject.Find ("gameText");
 		textObjectText.text = "Welcome to a game of decisions!";
-	}
+        playerPosition = StaticVariableStorage.instance.GetPlayerPosition();
+
+        transform.position = mainCamera.transform.position + new Vector3(0.95f * (playerPosition[0] - 1), 0.95f * (playerPosition[1] - 1.0f),0.0f);
+    }
+
+    private void OnDestroy()
+    {
+        StaticVariableStorage.instance.SetPlayerPosition(playerPosition);
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,7 +47,6 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     movementVector.Set(0.0f, 0.95f, 0.0f);
                     playerPosition[1] += 1;
-                    print("W key was pressed");
                 }
             }
             else if (Input.GetKeyDown(KeyCode.A))
@@ -53,7 +56,6 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     movementVector.Set(-0.95f, 0.0f, 0.0f);
                     playerPosition[0] -= 1;
-                    print("A key was pressed");
                 }
             }
             else if (Input.GetKeyDown(KeyCode.S))
@@ -63,7 +65,6 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     movementVector.Set(0.0f, -0.95f, 0.0f);
                     playerPosition[1] -= 1;
-                    print("S key was pressed");
                 }
             }
             else if (Input.GetKeyDown(KeyCode.D))
@@ -73,12 +74,10 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     movementVector.Set(0.95f, 0.0f, 0.0f);
                     playerPosition[0] += 1;
-                    print("D  key was pressed");
                 }
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
-                print("F  key was pressed");
 
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 					textObjectText.text = "This is a sign.";
