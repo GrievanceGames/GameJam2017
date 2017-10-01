@@ -65,4 +65,17 @@ public class StaticVariableStorage : MonoBehaviour {
     {
         return (sceneEntered[sceneNumber]);
     }
+
+    public int GetNumScenesEntered()
+    {
+        int numOfScenes = 0;
+        for(int i = 1; i < 4; i++)
+        {
+            if(sceneEntered[i])
+            {
+                numOfScenes++;
+            }
+        }
+        return (numOfScenes);
+    }
 }

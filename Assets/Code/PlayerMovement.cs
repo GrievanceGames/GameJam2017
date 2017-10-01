@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 
     public int[] playerPosition = new int[] {1, 1};
     int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88, 63};
-    bool[] activeScenes = new bool[] { true, true, true, true };
     int activeSign = -1;
 
     // Use this for initialization
@@ -41,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             print("VICTORY!");
             invalidPositions = new int[] { 12, 18, 76, 55, 56, 87, 88, 63, 48, 58 };
+
             finalAvatarOne.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             finalAvatarTwo.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         }
@@ -101,6 +101,13 @@ public class PlayerMovement : MonoBehaviour {
                     scene = "TrainChooChoo";
 					inSign = true;
                     activeSign = 3;
+                }
+                else if (((playerPosition[0] == 4 && playerPosition[1] == 7) || (playerPosition[0] == 5 && playerPosition[1] == 7)) && StaticVariableStorage.instance.GetNumScenesEntered() == 3)
+                {
+                    textObjectText.text = "There is one last dilemma that you must consider before being judged. Are you ready to begin?";
+                    scene = "LastScene";
+                    inSign = true;
+                    activeSign = 0;
                 } else {
 				}
 			}
