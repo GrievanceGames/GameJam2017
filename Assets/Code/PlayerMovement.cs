@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         myTextGameObject = GameObject.Find ("gameText");
 		textObjectText.text = "Welcome to Moral Ambiguity! Please face the sign and press F.";
         playerPosition = StaticVariableStorage.instance.GetPlayerPosition();
+		textObjectText.text = StaticVariableStorage.instance.GetGameText();
 
         transform.position = mainCamera.transform.position + new Vector3(0.95f * (playerPosition[0] - 1), 0.95f * (playerPosition[1] - 1.0f),0.0f);
     }
@@ -32,88 +33,66 @@ public class PlayerMovement : MonoBehaviour {
     private void OnDestroy()
     {
         StaticVariableStorage.instance.SetPlayerPosition(playerPosition);
+		StaticVariableStorage.instance.SetGameText(textObjectText.text);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (inSign == false) {
+	{
+		if (inSign == false) {
 
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                playerAvatar.GetComponent<Animator>().Play("UpAvatarWalk");
-                if (playerPosition[1] + 1 != 9 && ValidNewPosition(1, 1))
-                {
-                    movementVector.Set(0.0f, 0.95f, 0.0f);
-                    playerPosition[1] += 1;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                playerAvatar.GetComponent<Animator>().Play("LeftAvatarWalk");
-                if (playerPosition[0] - 1 != 0 && ValidNewPosition(-1, 0))
-                {
-                    movementVector.Set(-0.95f, 0.0f, 0.0f);
-                    playerPosition[0] -= 1;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                playerAvatar.GetComponent<Animator>().Play("IdleAvatar");
-                if (playerPosition[1] - 1 != 0 && ValidNewPosition(-1, 1))
-                {
-                    movementVector.Set(0.0f, -0.95f, 0.0f);
-                    playerPosition[1] -= 1;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                playerAvatar.GetComponent<Animator>().Play("RightAvatarWalk");
-                if (playerPosition[0] + 1 != 9 && ValidNewPosition(1, 0))
-                {
-                    movementVector.Set(0.95f, 0.0f, 0.0f);
-                    playerPosition[0] += 1;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.F))
-            {
-
+			if (Input.GetKeyDown (KeyCode.W)) {
+				playerAvatar.GetComponent<Animator> ().Play ("UpAvatarWalk");
+				if (playerPosition [1] + 1 != 9 && ValidNewPosition (1, 1)) {
+					movementVector.Set (0.0f, 0.95f, 0.0f);
+					playerPosition [1] += 1;
+				}
+			} else if (Input.GetKeyDown (KeyCode.A)) {
+				playerAvatar.GetComponent<Animator> ().Play ("LeftAvatarWalk");
+				if (playerPosition [0] - 1 != 0 && ValidNewPosition (-1, 0)) {
+					movementVector.Set (-0.95f, 0.0f, 0.0f);
+					playerPosition [0] -= 1;
+				}
+			} else if (Input.GetKeyDown (KeyCode.S)) {
+				playerAvatar.GetComponent<Animator> ().Play ("IdleAvatar");
+				if (playerPosition [1] - 1 != 0 && ValidNewPosition (-1, 1)) {
+					movementVector.Set (0.0f, -0.95f, 0.0f);
+					playerPosition [1] -= 1;
+				}
+			} else if (Input.GetKeyDown (KeyCode.D)) {
+				playerAvatar.GetComponent<Animator> ().Play ("RightAvatarWalk");
+				if (playerPosition [0] + 1 != 9 && ValidNewPosition (1, 0)) {
+					movementVector.Set (0.95f, 0.0f, 0.0f);
+					playerPosition [0] += 1;
+				}
+			} else if (Input.GetKeyDown (KeyCode.F)) {
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
 					textObjectText.text = "Each sign will present you with a morally challenging scenario. Press ESC to exit";
 					inSign = true;
 				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
 					textObjectText.text = "Hey, you're in a grocery store! \nClick F to continue or click ESC to exit";
 					inSign = true;
-				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
-					textObjectText.text = "Doctor! I have a question! \nClick F to continue or click ESC to exit";
-					inSign = true;
 				} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
-					textObjectText.text = "Maybe I did.";
+					textObjectText.text = "Doctor! I have a question! \nClick F to continue or click ESC to exit";
 					inSign = true;
 				} else if (playerPosition [0] == 6 && playerPosition [1] == 2) {
 					textObjectText.text = "Can I ask you a trolley question? \nClick F to continue or click ESC to exit";
 					inSign = true;
-				} 
-				}
-				else {
+				} else {
 				}
 			}
-		else if (Input.GetKeyDown (KeyCode.Escape)) { 
-			print ("escape button clicked");
-			textObjectText.text = "";
-			inSign = false;
-		} else {
-			if (Input.GetKeyDown (KeyCode.F)) {
+		}else {
+			if (Input.GetKeyDown (KeyCode.Escape)) { 
 				textObjectText.text = "";
-                SceneManager.LoadScene("TrainChooChoo");
-                inSign = false;
+				inSign = false;
+			} else if (Input.GetKeyDown (KeyCode.F)) {
+					textObjectText.text = "";
+					SceneManager.LoadScene ("TrainChooChoo");
+					inSign = false;
+				}
 			}
-		}
-    }
-
-
-
-
+	}
+			
     void LateUpdate()
     {
         if (movementVector.x != 0.0f || movementVector.y != 0.0f)

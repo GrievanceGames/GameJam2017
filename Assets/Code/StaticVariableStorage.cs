@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaticVariableStorage : MonoBehaviour {
 
     public static StaticVariableStorage instance = null;
     private static int[] playerPositionArray = new int[2];
+	private static string gameText;
 
     public void Awake()
     {
@@ -33,6 +35,14 @@ public class StaticVariableStorage : MonoBehaviour {
     {
         return (playerPositionArray);
     }
+
+	public void SetGameText(string newGameText) {
+		gameText = newGameText;
+	}
+
+	public string GetGameText() {
+		return gameText;
+	}
 
 
 }

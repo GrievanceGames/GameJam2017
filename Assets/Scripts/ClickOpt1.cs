@@ -51,14 +51,11 @@ public class ClickOpt1 : MonoBehaviour {
     }
     void HiddenButton()
     {
-<<<<<<< HEAD
         print("HiddenOption was selected");
         TaskOnClick(hiddenSprite);
-=======
         Debug.Log("Return to Main Menu From 1");
         SceneManager.LoadScene("MainMenu");
 		// PlayerMovement.playerPosition = previousPosition.position;
->>>>>>> d71b7faa30cfab13ea4190982f1e8979f14cd440
     }
 
     void TaskOnClick(Sprite spriteChange)
