@@ -16,15 +16,14 @@ public class PlayerMovement : MonoBehaviour {
     public bool switchScene = false;
     public GameObject staticVariables;
 
-
-    int[] playerPosition = new int[] {1, 1};
+    public int[] playerPosition = new int[] {1, 1};
     int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88};
 
     // Use this for initialization
     void Start () {
         canvasObject = GameObject.Find("Canvas");
         myTextGameObject = GameObject.Find ("gameText");
-		textObjectText.text = "Welcome to a game of decisions!";
+		textObjectText.text = "Welcome to Moral Ambiguity! Please face the sign and press F.";
         playerPosition = StaticVariableStorage.instance.GetPlayerPosition();
 
         transform.position = mainCamera.transform.position + new Vector3(0.95f * (playerPosition[0] - 1), 0.95f * (playerPosition[1] - 1.0f),0.0f);
@@ -80,21 +79,29 @@ public class PlayerMovement : MonoBehaviour {
             {
 
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
-					textObjectText.text = "This is a sign.";
-					previousPosition.position.SetValue(playerPosition, 0);
-						
+					textObjectText.text = "Each sign will present you with a morally challenging scenario. Press ESC to exit";
 					inSign = true;
-
-
-                } else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
-					textObjectText.text = "No shit that was a sign.";
+				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
+					textObjectText.text = "Hey, you're in a grocery store! \nClick F to continue or click ESC to exit";
+					inSign = true;
+				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
+					textObjectText.text = "Doctor! I have a question! \nClick F to continue or click ESC to exit";
 					inSign = true;
 				} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
-					textObjectText.text = "Help me alex, you're my only hope.";
+					textObjectText.text = "Maybe I did.";
 					inSign = true;
-				} else {
+				} else if (playerPosition [0] == 6 && playerPosition [1] == 2) {
+					textObjectText.text = "Can I ask you a trolley question? \nClick F to continue or click ESC to exit";
+					inSign = true;
+				} 
+				}
+				else {
 				}
 			}
+		else if (Input.GetKeyDown (KeyCode.Escape)) { 
+			print ("escape button clicked");
+			textObjectText.text = "";
+			inSign = false;
 		} else {
 			if (Input.GetKeyDown (KeyCode.F)) {
 				textObjectText.text = "";
@@ -105,7 +112,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-		
+
 
     void LateUpdate()
     {

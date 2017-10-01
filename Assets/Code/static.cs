@@ -14,6 +14,14 @@ public static class previousPosition{
 			position = value;
 		}
 	}
+	public static int thirdButtonsHit{
+		get {
+			return thirdButtonsHit;
+		}
+		set {
+			thirdButtonsHit = value;
+		}
+	}
 }
 
 
