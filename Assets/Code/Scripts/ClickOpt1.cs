@@ -54,7 +54,7 @@ public class ClickOpt1 : MonoBehaviour {
         print("HiddenOption was selected");
         TaskOnClick(hiddenSprite);
         Debug.Log("Return to Main Menu From 1");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GardenOfMorality");
 		// PlayerMovement.playerPosition = previousPosition.position;
     }
 
@@ -79,7 +79,7 @@ public class ClickOpt1 : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GardenOfMorality");
         }
 
     }

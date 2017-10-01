@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour {
     public bool switchScene = false;
     public GameObject staticVariables;
 
+    public string scene;
+
     public int[] playerPosition = new int[] {1, 1};
-    int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88};
+    int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88, 63};
 
     // Use this for initialization
     void Start () {
@@ -71,12 +73,15 @@ public class PlayerMovement : MonoBehaviour {
 					inSign = true;
 				} else if (playerPosition [0] == 1 && playerPosition [1] == 7) {
 					textObjectText.text = "Hey, you're in a grocery store! \nClick F to continue or click ESC to exit";
+                    scene = "Grocery";
 					inSign = true;
 				} else if (playerPosition [0] == 7 && playerPosition [1] == 5) {
 					textObjectText.text = "Doctor! I have a question! \nClick F to continue or click ESC to exit";
+                    scene = "DoctorChocie";
 					inSign = true;
 				} else if (playerPosition [0] == 6 && playerPosition [1] == 2) {
 					textObjectText.text = "Can I ask you a trolley question? \nClick F to continue or click ESC to exit";
+                    scene = "TrainChooChoo";
 					inSign = true;
 				} else {
 				}
@@ -87,7 +92,7 @@ public class PlayerMovement : MonoBehaviour {
 				inSign = false;
 			} else if (Input.GetKeyDown (KeyCode.F)) {
 					textObjectText.text = "";
-					SceneManager.LoadScene ("TrainChooChoo");
+					SceneManager.LoadScene (scene);
 					inSign = false;
 				}
 			}

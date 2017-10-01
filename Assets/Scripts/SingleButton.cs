@@ -73,34 +73,34 @@ public class SingleButton : MonoBehaviour
                 messageTxt = "Congratulations! You went looking for a better way. You alerted the train conductor in time and everyone was saved.";
             }
         }
-        else if (scene.name == "SubmarineHatch")
+        else if (scene.name == "DoctorChocie")
         {
             if (optBtn.name == "Option1")
             {
-                messageTxt = "Option1";
+                messageTxt = "You let him go and as a result, he infected many people.";
             }
             else if (optBtn.name == "Option2")
             {
-                messageTxt = "Option2";
+                messageTxt = "You slipped poison into his medication and killed him before he could infect anyone else.";
             }
             else if (optBtn.name == "HiddenOption")
             {
-                messageTxt = "Hidden";
+                messageTxt = "You called the police and they arrested him.";
             }
         }
-        else if (scene.name == "GroceryStore")
+        else if (scene.name == "Grocery")
         {
             if (optBtn.name == "Option1")
             {
-                messageTxt = "Option1";
+                messageTxt = "You leave with the extra money.";
             }
             else if (optBtn.name == "Option2")
             {
-                messageTxt = "Option2";
+                messageTxt = "Tell the cashier they made a mistake.";
             }
             else if (optBtn.name == "HiddenOption")
             {
-                messageTxt = "Hidden";
+                messageTxt = "You give the cashier the extra money as you leave.";
             }
         }
         else if (scene.name == "LastScene")
