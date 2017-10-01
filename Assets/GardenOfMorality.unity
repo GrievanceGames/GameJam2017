@@ -476,6 +476,7 @@ MonoBehaviour:
   inSign: 0
   switchScene: 0
   staticVariables: {fileID: 0}
+  playerPosition: 0100000001000000
 --- !u!1 &1168985147
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,8 +619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0}
   m_AnchorMax: {x: 0.95, y: 0}
-  m_AnchoredPosition: {x: -212, y: 25}
-  m_SizeDelta: {x: -424, y: 50}
+  m_AnchoredPosition: {x: -61.5, y: 25.800003}
+  m_SizeDelta: {x: -123, y: 51.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253078759
 MonoBehaviour:
