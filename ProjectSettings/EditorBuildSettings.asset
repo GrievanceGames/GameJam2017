@@ -4,4 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/DoctorChocie.unity
+    guid: 22506d8b5587ec54abca51015296d40e
+  - enabled: 1
+    path: Assets/GardenOfMorality.unity
+    guid: 610f8208b29a7484eb4326b4bd03c92d
+  - enabled: 1
+    path: Assets/Grocery.unity
+    guid: 701042afb708a8741ad9d454fde44c2f
+  - enabled: 1
+    path: Assets/LastScene.unity
+    guid: 498e5bb6bb68cff419ee9bf430af2017
+  - enabled: 1
+    path: Assets/TrainChooChoo.unity
+    guid: 7e4f1aec68634c2449f47627cc82f092
