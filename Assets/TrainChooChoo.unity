@@ -191,6 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672284159}
   - component: {fileID: 672284158}
+  - component: {fileID: 672284160}
   m_Layer: 0
   m_Name: StandIn
   m_TagString: Untagged
@@ -247,12 +248,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672284157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.052999996, y: -0.017999997, z: -0}
-  m_LocalScale: {x: 4.487086, y: 3.6873374, z: 1}
+  m_LocalPosition: {x: -2.1411996, y: 4.646, z: 201.99998}
+  m_LocalScale: {x: 181.27826, y: 152.99475, z: 40.399998}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1327138733}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672284160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672284157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca22bb6ca857e948bef5fa45f9850c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726527302
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +277,6 @@ GameObject:
   - component: {fileID: 726527305}
   - component: {fileID: 726527304}
   - component: {fileID: 726527307}
-  - component: {fileID: 726527309}
-  - component: {fileID: 726527308}
   m_Layer: 5
   m_Name: Option1
   m_TagString: Untagged
@@ -375,51 +385,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 726527302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b765f5ec135aa84a9e4bb210acf7a13, type: 3}
+  m_Script: {fileID: 11500000, guid: 132938058ca281a479dea94aa9733c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   optBtn: {fileID: 726527304}
---- !u!114 &726527308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 726527302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd2594d5a82ccf4ca87e2eba627650f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &726527309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 726527302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 726527302}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 1
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
+  optOther: {fileID: 1927721536}
+  optHidden: {fileID: 2043219870}
+  sprite: {fileID: 21300000, guid: 4b46c15a5f41b254daaf328f00d47f74, type: 3}
+  sprite1: {fileID: 21300000, guid: 669d233f19a69e14b984145e4afbb149, type: 3}
+  spriteRenderer: {fileID: 672284158}
+  timer: {fileID: 1401422730}
+  message: {fileID: 1843761517}
 --- !u!1 &812712750
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +628,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -856,8 +832,10 @@ RectTransform:
   - {fileID: 1401422728}
   - {fileID: 2043219866}
   - {fileID: 835733277}
+  - {fileID: 1843761516}
+  - {fileID: 672284159}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1015,8 +993,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1843761515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1843761516}
+  - component: {fileID: 1843761518}
+  - component: {fileID: 1843761517}
+  m_Layer: 5
+  m_Name: EndMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1843761516
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843761515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4201596, y: 1.4201595, z: 1.4201595}
+  m_Children: []
+  m_Father: {fileID: 1327138733}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -286.59998, y: -62.081005}
+  m_SizeDelta: {x: 220.4, y: 87.428}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1843761517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843761515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1843761518
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843761515}
 --- !u!1 &1927721534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,10 +1200,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1927721534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b765f5ec135aa84a9e4bb210acf7a13, type: 3}
+  m_Script: {fileID: 11500000, guid: 132938058ca281a479dea94aa9733c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   optBtn: {fileID: 1927721536}
+  optOther: {fileID: 726527304}
+  optHidden: {fileID: 2043219870}
+  sprite: {fileID: 21300000, guid: 4b46c15a5f41b254daaf328f00d47f74, type: 3}
+  sprite1: {fileID: 21300000, guid: ac67e63b829dd2a49a2e39fbfed7b6ed, type: 3}
+  spriteRenderer: {fileID: 672284158}
+  timer: {fileID: 1401422730}
+  message: {fileID: 1843761517}
 --- !u!1 &2043219865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1221,8 @@ GameObject:
   - component: {fileID: 2043219866}
   - component: {fileID: 2043219872}
   - component: {fileID: 2043219871}
-  - component: {fileID: 2043219867}
   - component: {fileID: 2043219870}
+  - component: {fileID: 2043219867}
   m_Layer: 5
   m_Name: HiddenOption
   m_TagString: Untagged
@@ -1198,10 +1257,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043219865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24e550f8bc60284d8c0a891e0d5bfce, type: 3}
+  m_Script: {fileID: 11500000, guid: 132938058ca281a479dea94aa9733c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   optBtn: {fileID: 2043219870}
+  optOther: {fileID: 726527304}
+  optHidden: {fileID: 1927721536}
+  sprite: {fileID: 21300000, guid: 4b46c15a5f41b254daaf328f00d47f74, type: 3}
+  sprite1: {fileID: 21300000, guid: b8a6c0e04ecc0c544906d5e27070985d, type: 3}
+  spriteRenderer: {fileID: 672284158}
+  timer: {fileID: 1401422730}
+  message: {fileID: 1843761517}
 --- !u!114 &2043219870
 MonoBehaviour:
   m_ObjectHideFlags: 0

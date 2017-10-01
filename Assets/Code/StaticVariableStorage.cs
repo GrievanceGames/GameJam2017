@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaticVariableStorage : MonoBehaviour {
 
     public static StaticVariableStorage instance = null;
-    private static int[] playerPositioinArray = new int[2];
+    private static int[] playerPositionArray = new int[2];
+	private static string gameText;
 
     public void Awake()
     {
@@ -26,13 +28,21 @@ public class StaticVariableStorage : MonoBehaviour {
 
     public void SetPlayerPosition(int[] newPlayerPosition)
     {
-        playerPositioinArray = newPlayerPosition;
+        playerPositionArray = newPlayerPosition;
     }
 
     public int[] GetPlayerPosition()
     {
-        return (playerPositioinArray);
+        return (playerPositionArray);
     }
+
+	public void SetGameText(string newGameText) {
+		gameText = newGameText;
+	}
+
+	public string GetGameText() {
+		return gameText;
+	}
 
 
 }
