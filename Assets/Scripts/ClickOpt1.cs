@@ -18,5 +18,6 @@ public class ClickOpt1 : MonoBehaviour {
     {
         Debug.Log("Return to Main Menu From 1");
         SceneManager.LoadScene("MainMenu");
+		// PlayerMovement.playerPosition = previousPosition.position;
     }
 }
