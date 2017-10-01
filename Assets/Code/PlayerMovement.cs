@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			} else if (Input.GetKeyDown (KeyCode.F)) {
 				if (playerPosition [0] == 1 && playerPosition [1] == 1) {
-					textObjectText.text = "Each sign will present you with a morally challenging scenario. \nPress ESC to exit";
+					textObjectText.text = "Each sign will present you with a morally challenging scenario. Press ESC to exit";
 					inSign = true;
                     activeSign = 0;
 				} else if (playerPosition [0] == 1 && playerPosition [1] == 7 && !StaticVariableStorage.instance.GetSceneEntered(1)) {
