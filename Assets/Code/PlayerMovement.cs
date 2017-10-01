@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         canvasObject = GameObject.Find("Canvas");
         myTextGameObject = GameObject.Find ("gameText");
-		textObjectText.text = "Welcome to a game of decisions!";
+		textObjectText.text = "Welcome to a game of decisions!";    
         playerPosition = StaticVariableStorage.instance.GetPlayerPosition();
 
         transform.position = mainCamera.transform.position + new Vector3(0.95f * (playerPosition[0] - 1), 0.95f * (playerPosition[1] - 1.0f),0.0f);
