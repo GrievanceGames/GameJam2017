@@ -115,11 +115,15 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Escape)) { 
 				textObjectText.text = "";
 				inSign = false;
+                scene = "";
 			} else if (Input.GetKeyDown (KeyCode.F)) {
 					textObjectText.text = "";
                 StaticVariableStorage.instance.SetSceneEntered(activeSign);
-                SceneManager.LoadScene (scene);
-					inSign = false;
+                if(scene!= "")
+                {
+                    SceneManager.LoadScene(scene);
+                }
+                inSign = false;
 			}
 		}
 	}

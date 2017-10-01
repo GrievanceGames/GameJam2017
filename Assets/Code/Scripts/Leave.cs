@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Leave : MonoBehaviour
 {
-
+    public bool finalDilema = false;
     // Update is called once per frame
     void Update()
     {
@@ -13,8 +13,17 @@ public class Leave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             print("F pressed");
-            StaticVariableStorage.instance.SetStageCompleted();
-            SceneManager.LoadScene("GardenOfMorality");
+
+            print(finalDilema);
+            if(finalDilema)
+            {
+                SceneManager.LoadScene("endscreen");
+            }
+            else
+            {
+                StaticVariableStorage.instance.SetStageCompleted();
+                SceneManager.LoadScene("GardenOfMorality");
+            }
         }
     }
 }
