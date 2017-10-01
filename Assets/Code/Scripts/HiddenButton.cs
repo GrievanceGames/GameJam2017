@@ -25,7 +25,7 @@ public class HiddenButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GardenOfMorality");
         }
     }
 }

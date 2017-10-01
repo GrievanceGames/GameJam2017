@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject staticVariables;
 
     public int[] playerPosition = new int[] {1, 1};
-    int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88};
+    int[] invalidPositions = new int[] {12, 18, 76, 55, 56, 87, 88, 63};
 
     // Use this for initialization
     void Start () {

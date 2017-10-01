@@ -13,7 +13,7 @@ public class Leave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             print("F pressed");
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GardenOfMorality");
         }
     }
 }
