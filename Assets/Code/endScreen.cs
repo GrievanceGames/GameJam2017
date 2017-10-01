@@ -10,7 +10,7 @@ public class endScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		hiddenButtons = 0; // StaticVariableStorage.instance.GetHiddenFound();
+		hiddenButtons = StaticVariableStorage.instance.GetHiddenFound();
 		TextObject.text = "The Garden is not impressed with your morality. You found " + hiddenButtons + " alternative options in the world that is not binary. The Garden will let you leave. For now. Press ESC to exit.";
 
 	}
