@@ -5,7 +5,7 @@ using UnityEngine;
 public class StaticVariableStorage : MonoBehaviour {
 
     public static StaticVariableStorage instance = null;
-    private static int[] playerPositioinArray = new int[2];
+    private static int[] playerPositionArray = new int[2];
 
     public void Awake()
     {
@@ -26,12 +26,12 @@ public class StaticVariableStorage : MonoBehaviour {
 
     public void SetPlayerPosition(int[] newPlayerPosition)
     {
-        playerPositioinArray = newPlayerPosition;
+        playerPositionArray = newPlayerPosition;
     }
 
     public int[] GetPlayerPosition()
     {
-        return (playerPositioinArray);
+        return (playerPositionArray);
     }
 
 
