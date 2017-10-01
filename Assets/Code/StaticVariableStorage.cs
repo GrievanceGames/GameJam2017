@@ -10,6 +10,7 @@ public class StaticVariableStorage : MonoBehaviour {
 	private static string gameText;
     private static int stagesCompleted = 0;
     private static bool[] sceneEntered = new bool[] {false, false, false, false};
+	private static int hiddenFound;
 
     public void Awake()
     {
@@ -45,7 +46,7 @@ public class StaticVariableStorage : MonoBehaviour {
 	public string GetGameText() {
 		return gameText;
 	}
-
+		
     public void SetStageCompleted()
     {
         stagesCompleted++;
@@ -55,6 +56,13 @@ public class StaticVariableStorage : MonoBehaviour {
     {
         return (stagesCompleted);
     }
+	public void SetHiddenFound(int newHiddenFound) {
+		hiddenFound = newHiddenFound;
+	}
+
+	public int GetHiddenFound() {
+		return hiddenFound;
+	}
 
     public void SetSceneEntered(int sceneNumber)
     {
