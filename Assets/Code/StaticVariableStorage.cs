@@ -8,6 +8,7 @@ public class StaticVariableStorage : MonoBehaviour {
     public static StaticVariableStorage instance = null;
     private static int[] playerPositionArray = new int[2];
 	private static string gameText;
+    private static int stagesCompleted = 0;
 
     public void Awake()
     {
@@ -44,5 +45,14 @@ public class StaticVariableStorage : MonoBehaviour {
 		return gameText;
 	}
 
+    public void SetStageCompleted()
+    {
+        stagesCompleted++;
+    }
+
+    public int GetStagesCompleted()
+    {
+        return (stagesCompleted);
+    }
 
 }

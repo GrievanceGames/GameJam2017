@@ -25,6 +25,7 @@ public class HiddenButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            StaticVariableStorage.instance.SetStageCompleted();
             SceneManager.LoadScene("GardenOfMorality");
         }
     }
